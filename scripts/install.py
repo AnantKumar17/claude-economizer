@@ -19,10 +19,10 @@ SETTINGS_FILE = CLAUDE_DIR / "settings.json"
 USER_DATA_DIR = CLAUDE_DIR / "prompt-economizer"
 
 def step(msg: str):
-    print(f"  ✓ {msg}")
+    print(f"  [OK] {msg}")
 
 def fail(msg: str):
-    print(f"  ✗ {msg}")
+    print(f"  [ERROR] {msg}")
     sys.exit(1)
 
 def main():
@@ -50,9 +50,22 @@ def main():
             capture_output=True, text=True
         )
         if result.returncode != 0:
-            print(f"  ⚠ Warning: Could not install anthropic package")
-            print(f"  Please install manually: pip3 install anthropic --user")
-            print(f"  Or: python3 -m pip install anthropic --user")
+            # On macOS/some Linux systems, try --break-system-packages as last resort
+            if "externally-managed-environment" in result.stderr:
+                print("  → Retrying with --break-system-packages flag (macOS detected)...")
+                result = subprocess.run(
+                    [sys.executable, "-m", "pip", "install", "anthropic>=0.40.0", "--user", "--break-system-packages", "--quiet"],
+                    capture_output=True, text=True
+                )
+                if result.returncode == 0:
+                    step("anthropic package installed (--user --break-system-packages)")
+                else:
+                    print(f"  [WARN] Warning: Could not install anthropic package")
+                    print(f"  Please install manually:")
+                    print(f"    pip3 install anthropic --user --break-system-packages")
+            else:
+                print(f"  [WARN] Warning: Could not install anthropic package")
+                print(f"  Please install manually: pip3 install anthropic --user")
         else:
             step("anthropic package installed (--user)")
     else:
@@ -132,7 +145,7 @@ def main():
         step("Existing config preserved")
 
     print("\n╔══════════════════════════════════╗")
-    print("║   Installation Complete! 🎉      ║")
+    print("║   Installation Complete!         ║")
     print("╚══════════════════════════════════╝\n")
     print("Next steps:")
     print(f"  1. Set your API key:")

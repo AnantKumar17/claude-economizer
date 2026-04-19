@@ -109,7 +109,7 @@ Test that Claude Economizer can reach the proxy:
 
 ```bash
 # Test with a simple prompt
-echo '{"prompt":"test"}' | /Users/I528623/.claude/claude-economizer/hooks/economizer.py
+echo '{"prompt":"test"}' | python3 ~/.claude/claude-economizer/hooks/economizer.py
 ```
 
 If working correctly, you should see the prompt pass through (since it's very short).
@@ -194,12 +194,12 @@ Keep that terminal open!
 
 When using Claude Economizer with Hyperspace proxy at SAP:
 
-✅ **Permitted:** Using approved Anthropic models (Haiku, Sonnet, Opus)
-✅ **Permitted:** Claude Code CLI and VS Code extension with proxy
-✅ **Required:** Follow [SAP Production Use Guide](https://hAIperspace.github.io/docs/guides/production-use)
+[PERMITTED] Using approved Anthropic models (Haiku, Sonnet, Opus)
+[PERMITTED] Claude Code CLI and VS Code extension with proxy
+[REQUIRED] Follow [SAP Production Use Guide](https://hAIperspace.github.io/docs/guides/production-use)
 
-❌ **Not permitted:** Direct Anthropic API access (use proxy instead)
-❌ **Not permitted:** Claude Desktop App (separate from CLI)
+[NOT PERMITTED] Direct Anthropic API access (use proxy instead)
+[NOT PERMITTED] Claude Desktop App (separate from CLI)
 
 ## Comparison: Direct API vs Proxy
 

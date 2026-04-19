@@ -2,7 +2,7 @@
   "name": "prompt-economizer",
   "version": "1.0.0",
   "description": "Bidirectional prompt optimizer for Claude Code. Compresses small tasks, structures large ones. Optimizes for net token cost — not just prompt length.",
-  "author": "claude-code-user",
+  "author": "AnantKumar17",
   "hooks": "hooks/hooks.json",
   "skills": [
     "skills/prompt-economizer.md"

@@ -387,8 +387,8 @@ Possible improvements (not in v1.0):
 ---
 
 **This architecture prioritizes:**
-- ✅ Zero breaking changes (always falls back)
-- ✅ Low latency (heuristics catch 60%)
-- ✅ High ROI (adaptive strategy)
-- ✅ Transparency (shows what changed)
-- ✅ Configurability (every knob exposed)
+- ** Zero breaking changes (always falls back)
+- ** Low latency (heuristics catch 60%)
+- ** High ROI (adaptive strategy)
+- ** Transparency (shows what changed)
+- ** Configurability (every knob exposed)

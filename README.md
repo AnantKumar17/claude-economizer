@@ -26,6 +26,7 @@ Prompt Economizer optimizes in BOTH directions:
 ### For Everyone Else
 
 ```bash
+git clone https://github.com/AnantKumar17/claude-economizer.git
 cd claude-economizer
 python3 scripts/install.py
 ```
@@ -276,6 +277,31 @@ Total: 1 round, ~1500 tokens
 
 ## Architecture
 
+### Directory Structure
+
+This project uses two separate directories:
+
+1. **`claude-economizer/`** (this repository)
+   - Source code and installation files
+   - Location: wherever you cloned/downloaded this repo
+   - Contains: hooks, scripts, config templates, documentation
+   - Purpose: The installation source (version-controlled, shareable)
+
+2. **`~/.claude/prompt-economizer/`** (user data directory)
+   - Your personal runtime data and settings
+   - Location: `~/.claude/prompt-economizer/`
+   - Contains: `config.json`, `economizer.log`, `stats.json`
+   - Purpose: User-specific configuration and state
+   - Created automatically by installer
+
+**Why separate?** This separation allows you to:
+- Update the source repo without losing your stats/config
+- Have multiple users on the same system with different configs
+- Keep personal data separate from version-controlled code
+- Delete the source repo after installation without breaking functionality
+
+### Execution Flow
+
 ```
 UserPromptSubmit hook
   ↓
@@ -326,13 +352,16 @@ By tier:
 ## Uninstallation
 
 ```bash
-# Remove hook from ~/.claude/settings.json
-# Delete user data
+# 1. Remove hook from ~/.claude/settings.json (edit manually)
+# 2. Delete user data directory (your config, logs, stats)
 rm -rf ~/.claude/prompt-economizer
 
-# Remove skills and commands
+# 3. Remove skills and commands
 rm ~/.claude/skills/prompt-economizer.md
 rm ~/.claude/commands/economizer-*.md
+
+# 4. (Optional) Remove source repository
+cd .. && rm -rf claude-economizer
 ```
 
 ## License

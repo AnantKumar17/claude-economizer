@@ -1,0 +1,18 @@
+{
+  "mode": "auto",
+  "model": "claude-haiku-4-5-20251001",
+  "complexity_model": "claude-haiku-4-5-20251001",
+  "optimization_model": "claude-haiku-4-5-20251001",
+  "bypass_prefixes": ["*", "//", "##", "#noopt"],
+  "short_prompt_threshold_tokens": 8,
+  "large_task_threshold_tokens": 120,
+  "show_diff": true,
+  "show_savings_estimate": true,
+  "stats_enabled": true,
+  "stats_file": "~/.claude/prompt-economizer/stats.json",
+  "log_file": "~/.claude/prompt-economizer/economizer.log",
+  "timeout_seconds": 25,
+  "optimization_budget_tokens": 400,
+  "compression_aggressiveness": "medium",
+  "api_key_env_var": "ANTHROPIC_API_KEY"
+}

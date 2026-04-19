@@ -1,0 +1,20 @@
+{
+  "name": "prompt-economizer",
+  "version": "1.0.0",
+  "description": "Bidirectional prompt optimizer for Claude Code. Compresses small tasks, structures large ones. Optimizes for net token cost — not just prompt length.",
+  "author": "claude-code-user",
+  "hooks": "hooks/hooks.json",
+  "skills": [
+    "skills/prompt-economizer.md"
+  ],
+  "commands": [
+    "commands/economizer-stats.md",
+    "commands/economizer-toggle.md",
+    "commands/economizer-mode.md"
+  ],
+  "requires": {
+    "python3": ">=3.8",
+    "pip_packages": ["anthropic>=0.40.0"]
+  },
+  "env_vars": ["ANTHROPIC_API_KEY"]
+}

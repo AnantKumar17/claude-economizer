@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "INSTALL_PATH/hooks/economizer.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
